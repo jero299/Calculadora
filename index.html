@@ -10,8 +10,8 @@
 </head>
 <body>
  <h1>Calculadora</h1>
-    <div class="calculadora" id="calculadora">
-        <input type="text" onkeydown="teclas(event)" id="result" readonly>
+    <div class="calcu" id="calculadora">
+        <input type="text" pattern="[0-9+\u002D\u002A\u002F]*" onkeydown="teclas(event)" id="result" readonly>
         <button onclick="appendToResult('1')">1</button>
         <button onclick="appendToResult('2')">2</button>
         <button onclick="appendToResult('3')">3</button>

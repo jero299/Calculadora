@@ -10,21 +10,17 @@ function calculate() {
   }
 
 //funcion para evitar escribir letras
-document.addEventListener("DOMContentLoaded", function() {
-  let input = document.getElementById("result");
-  input.addEventListener("input", function(event) {
-    let inputValue = event.target.value;
-    let filteredValue = inputValue.replace(/[^0-9+\-*/\r\n]/g, "");
-    event.target.value = filteredValue;
-  });
+document.getElementById("calculadora").addEventListener("input", (e) => {
+  let value = e.target.value;
+  e.target.value = value.replace(/[^A-Z\d-]/g, "");
 });
 
-
-  
+ 
 //funcion para usar las teclas numericas
 function teclas(event) {
     // Obtiene el código de la tecla presionada
     let tecla = event.key || event.which;
+
    // funcion para obtener el resultado presionando enter
     if (tecla === "Enter") {
       calculate();
@@ -39,8 +35,11 @@ function teclas(event) {
       input.value += tecla;
   
     // Previene que se ejecute el comportamiento por defecto del evento de la tecla presionada
-      event.preventDefault();
+      event.preventDefault();{ }
     }
+    
+    
+
  //funcion para borrar usando el boton C Y usando backspace
  function borrar() {
   let input = document.getElementById("result");
