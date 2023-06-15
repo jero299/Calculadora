@@ -1,4 +1,3 @@
-let tecla = ""
 //funcion para agregar operaciones
 function appendToResult(value) {
     document.getElementById("result").value += value;
@@ -9,13 +8,32 @@ function calculate() {
     let answer = eval(result); 
     document.getElementById("result").value = answer;
   }
+
+//funcion para evitar escribir letras
+document.addEventListener("DOMContentLoaded", function() {
+  let input = document.getElementById("result");
+  input.addEventListener("input", function(event) {
+    let inputValue = event.target.value;
+    let filteredValue = inputValue.replace(/[^0-9+\-*/\r\n]/g, "");
+    event.target.value = filteredValue;
+  });
+});
+
+
+  
 //funcion para usar las teclas numericas
 function teclas(event) {
     // Obtiene el código de la tecla presionada
     let tecla = event.key || event.which;
-    
+   // funcion para obtener el resultado presionando enter
+    if (tecla === "Enter") {
+      calculate();
+      event.preventDefault();
+      return;
+    }
+
     // Obtén el campo de texto
-      var input = document.getElementById("result");
+      let input = document.getElementById("result");
   
     // Agrega el número al valor actual del campo de texto
       input.value += tecla;
@@ -35,21 +53,7 @@ function teclas(event) {
   }
  })
  
- //funcion para obtener el resultado presionando enter
 
- //funcion para evitar que el input acepte letras
- document.addEventListener("Evento", function() {
-  let input = document.getElementById("result");
-  input.addEventListener("keydown", function(event) {
-    if (!isValidKey(event.key)) {
-      event.preventDefault();
-    }
-  });
-});
-
-function isValidKey(key) {
-  return /^\d$|^[\+\-\*\/]$/.test(key);
-}
 
 
   
