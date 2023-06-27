@@ -9,27 +9,33 @@
     
 </head>
 <body>
- <h1>Calculadora</h1>
+    <section id="A">
+ 
     <div class="calcu" id="calculadora">
-        <input type="text" pattern="[0-9+\u002D\u002A\u002F]*" onkeydown="teclas(event)" id="result" readonly>
-        <button onclick="appendToResult('1')">1</button>
-        <button onclick="appendToResult('2')">2</button>
-        <button onclick="appendToResult('3')">3</button>
-        <button onclick="appendToResult('4')">4</button>
-        <button onclick="appendToResult('5')">5</button>
-        <button onclick="appendToResult('6')">6</button>
-        <button onclick="appendToResult('7')">7</button>
-        <button onclick="appendToResult('8')">8</button>
-        <button onclick="appendToResult('9')">9</button>
-        <button onclick="appendToResult('0')">0</button>
-        <button onclick="appendToResult('+')">+</button>
-        <button onclick="appendToResult('-')">-</button>
-        <button onclick="appendToResult('*')">x</button>
-        <button onclick="appendToResult('/')">/</button>
-        <button onclick="borrar()">C</button>
+        <input type="text" oninput="restringirTeclas(event)" id="result" >
+            <section id="estilo-botones">
+                <button onclick="appendToResult('7')">7</button>
+                <button onclick="appendToResult('8')">8</button>
+                <button onclick="appendToResult('9')">9</button>
+                <button onclick="appendToResult('/')">/</button>
+                <button onclick="appendToResult('4')">4</button>
+                <button onclick="appendToResult('5')">5</button>
+                <button onclick="appendToResult('6')">6</button>
+                <button onclick="appendToResult('*')">x</button>
+                <button onclick="appendToResult('1')">1</button>
+                <button onclick="appendToResult('2')">2</button>
+                <button onclick="appendToResult('3')">3</button>
+                <button onclick="appendToResult('+')">+</button> 
+                <button onclick="appendToResult('0')">0</button>
+                <button onclick="appendToResult('.')">.</button>
+                <button onclick="appendToResult('-')">-</button> 
+                <button onclick="borrar()">C</button>
+                <button id="igual" style="background-color: beige;" onclick="calculate()">=</button>
+            </section>
+    </section>
     </div>
  
- <button onclick="calculate()">=</button>
+ 
     
 <script src="script.js"></script>    
 </body>
