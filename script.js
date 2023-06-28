@@ -12,10 +12,19 @@ function appendToResult(value) {
   input.value = currentValue + value;
 }
 
-// Función auxiliar para verificar si un carácter es un operador (+, -, *, /)
+// Función auxiliar para verificar si un carácter es un operador (+, -, *, /,.)
 function isOperator(char) {
   return char === '+' || char === '-' || char === '*' || char === '/' || char === '.';
 }
+//funcion adicional para las teclas +,-,*,/,. cuando se presionan usando el teclado 
+document.addEventListener("keydown", function(event) {
+  const key = event.key;
+  if (isOperator(key)) {
+    appendToResult(key);
+    event.preventDefault();
+  }
+});
+
 
 // Función para realizar el cálculo
 function calculate() {
